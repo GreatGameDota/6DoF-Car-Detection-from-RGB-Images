@@ -25,7 +25,7 @@ Other training notes:
 - Everything was done in Google Colab Notebooks on my laptop
 - All trained model weights were saved into my Google Drive
 
-Overall I learned a lot on how to properly train deep models and the main problem was the time constraint on me since I only discoverd this working model structure less than a week before the competition's end.
+Overall I learned a lot on how to properly train deep models and the main problem was the time constraint on me since I only discovered this working model structure less than a week before the competition's end.
 
 What I should have done:
 
