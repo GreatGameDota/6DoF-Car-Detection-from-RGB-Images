@@ -8,7 +8,7 @@ My solution was pretty simple: use keras centernet[[1]](https://github.com/Great
 
 ## Model
 
-I used keras centernet as implemented by @see--[[1]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts). I have a heatmap head with one output and a regression head with 5 outputs (yaw, roll, z, pitch_sin, pitch_cos). I use the predicted x,y from heatmap in order to get the final x,y,z prediction. I then concatenate the two heads together in order to calculate loss. For decoder, I used the same decoder implemented in @see--'s repo.
+I used keras centernet as implemented by @see--[[1]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts). I have a heatmap head with one output and a regression head with 5 outputs (yaw, roll, z, pitch_sin, pitch_cos). I use the predicted x,y from heatmap in order to get the final x,y,z prediction. I then concatenate the two heads together in order to calculate loss. For decoder, I used the same decoder implemented in @see--'s repo. Trained weights files are avaliable for download in this repo's releases (<link>)
 
 ## Input
 
@@ -23,6 +23,7 @@ Other training notes:
 - Every experiment had a batch size of 1 due to memory
 - For every fresh train I used old pretrained weights from a model I previously trained with just the heatmap head on gaussian heatmaps. This improved convergence for every model.
 - Everything was done in Google Colab Notebooks on my laptop
+- All trained model weights were saved into my Google Drive
 
 Overall I learned a lot on how to properly train deep models and the main problem was the time constraint on me since I only discoverd this working model structure less than a week before the compeition's end.
 
