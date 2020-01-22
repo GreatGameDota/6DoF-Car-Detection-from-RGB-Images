@@ -1,6 +1,6 @@
 # 6DoF Car Detection
 
-My 177th* place solution for the [6DoF Car Detection competition](https://www.kaggle.com/c/pku-autonomous-driving) hosted on Kaggle by Peking University/Baidu.
+My 177th place solution for the [6DoF Car Detection competition](https://www.kaggle.com/c/pku-autonomous-driving) hosted on Kaggle by Peking University/Baidu.
 
 ## Overview
 
@@ -58,7 +58,5 @@ Oh boy I ended up writing so much that I doubt anyone will read. If you read all
 - [2] Awesome Centernet Basline kernal by hocop1 https://www.kaggle.com/hocop1/centernet-baseline  
 - [3] Important evalution script by its7171 (based off my evaluation script util functions) https://www.kaggle.com/its7171/metrics-evaluation-script  
 - [4] Correct horizontal flip function by gebbissimo https://www.kaggle.com/gebbissimo/correct-horizontal-flipping-during-augmentation  
-
-*This was written before private LB was finalized so placement might change
 
 ![](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images/blob/master/assets/hourglass%204.png)
