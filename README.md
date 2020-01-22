@@ -8,7 +8,7 @@ My solution was pretty simple: use keras centernet[[1]](https://github.com/Great
 
 ## Model
 
-I used keras centernet as implemented by @see--[[1]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts). I have a heatmap head with one output and a regression head with 5 outputs (yaw, roll, z, pitch_sin, pitch_cos). I use the predicted x,y from heatmap in order to get the final x,y,z prediction. I then concatenate the two heads together in order to calculate loss. For decoder, I used the same decoder implemented in @see--'s repo. Trained weights files are avaliable for download in this repo's releases (<link>)
+I used keras centernet as implemented by @see--[[1]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts). I have a heatmap head with one output and a regression head with 5 outputs (yaw, roll, z, pitch_sin, pitch_cos). I use the predicted x,y from heatmap in order to get the final x,y,z prediction. I then concatenate the two heads together in order to calculate loss. For decoder, I used the same decoder implemented in @see--'s repo. Trained weights files are avaliable for download in this repo's releases (https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images/releases)
 
 ## Input
 
