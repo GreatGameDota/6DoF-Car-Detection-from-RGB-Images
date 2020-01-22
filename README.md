@@ -8,15 +8,15 @@ My solution was pretty simple: use keras centernet[[1]](https://github.com/Great
 
 ## Model
 
-I used keras centernet as implemented by @see--[[1]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts). I have a heatmap head with one output and a regression head with 5 outputs (yaw, roll, z, pitch_cos, pitch_sin). I use the predicted x,y from heatmap in order to get the final x,y,z prediction. I then concatenate the two heads together inorder to calculate loss. For decoder I use the same decoder implemented in @see--'s repo.
+I used keras centernet as implemented by @see--[[1]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts). I have a heatmap head with one output and a regression head with 5 outputs (yaw, roll, z, pitch_sin, pitch_cos). I use the predicted x,y from heatmap in order to get the final x,y,z prediction. I then concatenate the two heads together in order to calculate loss. For decoder, I used the same decoder implemented in @see--'s repo.
 
 ## Input
 
-What to give the model was a big problem to solve which hindered me for basically the entire compeition. Initially I used a gaussian heatmap as mask but this caused a great slow down in training (1 epoch took 8 hours alone). The regression mask didn't have any problems since it is always a square mask. As for RGB image input I experimented a lot with it but settled on the most basic preproccessing. I tried keeping the input consistent with the original implementation of the centernet model[[1]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts). So I used the same letterbox transformer util to reshape the image to 512x512 with black bars at the top and bottum of the image. I then used the same normalize function to normalize the input image. I also add augmentations: horizontal flip[[4]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts), and random contrast/brightness.
+What to give the model was a big problem to solve which hindered me for basically the entire competition. Initially I used a gaussian heatmap as mask but this caused a great slow down in training (1 epoch took 8 hours alone). And I didn't switch to a simple square mask until a week before the competition deadline. The regression mask didn't have any problems since it is always a square mask. As for RGB image input I experimented a lot with it but settled on the most basic preproccessing. I tried keeping the input consistent with the original implementation of the centernet model[[1]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts). So I used the same letterbox transformer util to reshape the image to 512x512 with black bars at the top and bottom of the image. I then used the same normalize function to normalize the input image. I also add augmentations: horizontal flip[[4]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts), and random contrast/brightness.
 
 ## Training
 
-This part is where my inexperince hindered me the most. I first trained my best model on a 90-10 train data split, lr=0.001 w/ ReduceLROnPlateau, Adam optimizer, and for about 20 epochs (colab disconnects after 9-10 epochs and I didn't keep track). Training took about 20 total hours (about an hour per epoch). This first part of training got a CV of .18 (CV calculated using the 10% validation data and using @its7171's evaluation script[[3]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts)). **Screenshot of this training below.** I then changed the train data split to 80-20 to try and get a better idea of the performance of the model. I trained separate models and didn't see much difference in public LB performance and CV score. I took my later model (which initially scored .16 mAP on the 20% validation data) and continued training with the 80-20 train test split and initial lr set to what it was when training stopped last time. I also implmented a callback which calculated the mAP after every epoch and saved the model with best score. The mAP increased slightly to .167.
+This part is where my inexperince hindered me the most. I first trained my best model on a 90-10 train data split, lr=0.001 w/ ReduceLROnPlateau, Adam optimizer, and for about 20-25 epochs (colab disconnects after 9-10 epochs and I didn't keep track). Training took about 20 total hours (about an hour per epoch). This first part of training got a CV of .18 (CV calculated using the 10% validation data and using @its7171's evaluation script[[3]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts)). **Screenshot of this training below.** I then changed the train data split to 80-20 to try and get a better idea of the performance of the model. I trained separate models and didn't see much difference in public LB performance and CV score. So then I took my later model (which initially scored .16 mAP on the 20% validation data) and continued training with the 80-20 train test split with initial lr set to what it was when training stopped last time. I also implmented a callback which calculated the mAP after every epoch and saved the model with best score. The mAP increased slightly to .167 which scored the best on LB of the models I actually tested.
 
 Other training notes:
 
@@ -29,14 +29,14 @@ Overall I learned a lot on how to properly train deep models and the main proble
 What I should have done:
 
 - Use a LR Scheduler to optimize lr.
-- Train a new model on entire dataset with good hyperparameters
+- Train a new model on entire dataset with the best hyperparameters
 - Figure out a faster and better way to experiment inorder to find optimal solutions
 - Figure out augmentation (I did use augmentations but I don't think it helped)
 - Implement mAP callback while training ASAP
 
 ## Final Submission
 
-For my final submission I convert to model to an inference model (add the decoder) and predict on the test images. I then convert the x,y predictions to image coordinates and using the predicted z to get the x,y,z world coordinates. I also used a threshold where there were <23,000 predicted cars as recommended by fellow kagglers.
+For my final submission I converted the model to an inference model (add the decoder) and predict on the test images. I then convert the x,y predictions to image coordinates and used the predicted z to get the x,y,z world coordinates. I also used a threshold where there were <23,000 predicted cars as recommended by fellow kagglers (which increased my score a good amount).
 
 ```
 Public LB: 0.058
@@ -45,7 +45,7 @@ Private LB: 0.051
 
 ## Experiments
 
-I could go on for ages about all the experiments I persured but there are SO many things I tried over the last 4 months that I can't be bothered and none of them worked anyway.
+I could go on for ages about all the experiments I persued but there are SO many things I tried over the last 4 months that I can't be bothered and none of them worked anyway.
 
 ## Final thoughts
 
