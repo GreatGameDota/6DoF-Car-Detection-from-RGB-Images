@@ -60,4 +60,4 @@ Oh boy I ended up writing so much that I doubt anyone will read. If you read all
 
 *This was written before private LB was finalized so placement might change
 
-![](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images/assests/blob/hourglass 4.png)
+![](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images/blob/master/assets/hourglass%204.png)
