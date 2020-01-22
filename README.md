@@ -2,6 +2,8 @@
 
 My 177th place solution for the [6DoF Car Detection competition](https://www.kaggle.com/c/pku-autonomous-driving) hosted on Kaggle by Peking University/Baidu.
 
+![](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images/blob/master/assets/example.png)
+
 ## Overview
 
 My solution was pretty simple: use keras centernet[[1]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts) with heatmap head and regression head. I train the model on preprocessed images with the masks of ignored cars. Focal loss was used for heatmap head and L1 loss (as implemented in the centernet baseline kernal[[2]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts)) for regression head. Optimizer was Adam with initial lr of 0.001 with ReduceLROnPlateau employed to lower lr based on val_loss.
