@@ -16,7 +16,7 @@ What to give the model was a big problem to solve which hindered me for basicall
 
 ## Training
 
-This part is where my inexperince hindered me the most. I first trained my best model on a 90-10 train data split, lr=0.001 w/ ReduceLROnPlateau, Adam optimizer, and for about 20-25 epochs (colab disconnects after 9-10 epochs and I didn't keep track). Training took about 20 total hours (about an hour per epoch). This first part of training got a CV of .18 (CV calculated using the 10% validation data and using @its7171's evaluation script[[3]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts)). **Screenshot of this training below.** I then changed the train data split to 80-20 to try and get a better idea of the performance of the model. I trained separate models and didn't see much difference in public LB performance and CV score. So then I took my later model (which initially scored .16 mAP on the 20% validation data) and continued training with the 80-20 train test split with initial lr set to what it was when training stopped last time. I also implemented a callback which calculates the mAP after every epoch and saved the model with the best score. The mAP increased slightly to .167 which scored the best on LB.
+This part is where my inexperince hindered me the most. I first trained my best model on a 90-10 train data split, lr=0.001 w/ ReduceLROnPlateau, Adam optimizer, and for about 20-25 epochs (colab disconnects after 9-10 epochs and I didn't keep track). Training took about 20 total hours (about an hour per epoch). This first part of training got a CV of .18 (CV calculated using the 10% validation data and using @its7171's evaluation script[[3]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts)). **Screenshot of this training below.** I then changed the train data split to 80-20 to try and get a better idea of the performance of the model. I trained separate models and didn't see much difference in public LB performance and CV score. So then I took my later model (which initially scored .16 mAP on the 20% validation data) and continued training with the 80-20 train test split with initial lr set to what it was when training stopped last time. I also implemented a callback which calculates the mAP after every epoch and saves the model with the best score. The mAP increased slightly to .167 which scored the best on LB.
 
 Other training notes:
 
@@ -25,7 +25,7 @@ Other training notes:
 - Everything was done in Google Colab Notebooks on my laptop
 - All trained model weights were saved into my Google Drive
 
-Overall I learned a lot on how to properly train deep models and the main problem was the time constraint on me since I only discoverd this working model structure less than a week before the compeition's end.
+Overall I learned a lot on how to properly train deep models and the main problem was the time constraint on me since I only discoverd this working model structure less than a week before the competition's end.
 
 What I should have done:
 
