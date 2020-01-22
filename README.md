@@ -16,11 +16,12 @@ What to give the model was a big problem to solve which hindered me for basicall
 
 ## Training
 
-This part is where my inexperince hindered me the most. I first trained my best model on a 90-10 train data split, lr=0.001 w/ ReduceLROnPlateau, Adam optimizer, and for about 20 epochs (colab disconnects after 9-10 epochs and I didn't keep track). Training took about 20 total hours (about an hour per epoch). This first part of training got a CV of .18 (CV calculated using the 10% validation data and using @kito's evaluation script[[3]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts)). I then changed the train data split to 80-20 to try and get a better idea of the performance of the model. I trained separate models and didn't see much difference in public LB performance and CV score. I took my later model (which initially scored .16 mAP on the 20% validation data) and continued training with the 80-20 train test split and initial lr set to what it was when training stopped last time. I also implmented a callback which calculated the mAP after every epoch and saved the model with best score. The mAP increased slightly to .167.
+This part is where my inexperince hindered me the most. I first trained my best model on a 90-10 train data split, lr=0.001 w/ ReduceLROnPlateau, Adam optimizer, and for about 20 epochs (colab disconnects after 9-10 epochs and I didn't keep track). Training took about 20 total hours (about an hour per epoch). This first part of training got a CV of .18 (CV calculated using the 10% validation data and using @its7171's evaluation script[[3]](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images#final-thoughts)). I then changed the train data split to 80-20 to try and get a better idea of the performance of the model. I trained separate models and didn't see much difference in public LB performance and CV score. I took my later model (which initially scored .16 mAP on the 20% validation data) and continued training with the 80-20 train test split and initial lr set to what it was when training stopped last time. I also implmented a callback which calculated the mAP after every epoch and saved the model with best score. The mAP increased slightly to .167.
 
 Other training notes:
 
 - Every experiment had a batch size of 1 due to memory
+- For every fresh train I used old pretrained weights from a model I previously trained with just the heatmap head on gaussian heatmaps. This improved convergence for every model.
 - Everything was done in Google Colab Notebooks on my laptop
 
 Overall I learned a lot on how to properly train deep models and the main problem was the time constraint on me since I only discoverd this working model structure less than a week before the compeition's end.
@@ -54,7 +55,7 @@ Oh boy I ended up writing so much that I doubt anyone will read. If you read all
 
 - [1] Keras Centernet Github Repo by see-- https://github.com/see--/keras-centernet  
 - [2] Awesome Centernet Basline kernal by hocop1 https://www.kaggle.com/hocop1/centernet-baseline  
-- [3] Important evalution script by kito (based off my evaluation script util functions) https://www.kaggle.com/its7171/metrics-evaluation-script  
+- [3] Important evalution script by its7171 (based off my evaluation script util functions) https://www.kaggle.com/its7171/metrics-evaluation-script  
 - [4] Correct horizontal flip function by gebbissimo https://www.kaggle.com/gebbissimo/correct-horizontal-flipping-during-augmentation  
 
 *This was written before private LB was finalized so placement might change
