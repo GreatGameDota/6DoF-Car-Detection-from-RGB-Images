@@ -22,7 +22,7 @@ This part is where my inexperince hindered me the most. I first trained my best 
 
 Other training notes:
 
-- Every experiment had a batch size of 1 due to memory
+- Every experiment had a batch size of 1 due to memory and 5 corrupted train images were removed
 - For every fresh train I used old pretrained weights from a model I previously trained with just the heatmap head on gaussian heatmaps. This improved convergence for every model.
 - Everything was done in Google Colab Notebooks on my laptop
 - All trained model weights were saved into my Google Drive
