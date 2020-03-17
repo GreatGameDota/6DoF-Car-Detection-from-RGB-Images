@@ -54,6 +54,8 @@ I could go on for ages about all the experiments I persued but there are SO many
 
 Oh boy I ended up writing so much that I doubt anyone will read. If you read all of that thanks, I hope you got something helpful from it. Anyways, I had a lot of fun in my first ever kaggle competition, I learned a lot and I can't wait to apply my new knowledge for upcoming competitions!
 
+My next competition: [Bengali Character Classification](https://github.com/GreatGameDota/Bengali-Character-Classification)
+
 ---------
 
 - [1] Keras Centernet Github Repo by see-- https://github.com/see--/keras-centernet  
