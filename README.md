@@ -63,4 +63,4 @@ My next competition: [Bengali Character Classification](https://github.com/Great
 - [3] Important evalution script by its7171 (based off my evaluation script util functions) https://www.kaggle.com/its7171/metrics-evaluation-script  
 - [4] Correct horizontal flip function by gebbissimo https://www.kaggle.com/gebbissimo/correct-horizontal-flipping-during-augmentation  
 
-![](https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images/blob/master/assets/hourglass%204.png)
+<img src='https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images/blob/master/assets/hourglass%204.png&raw=true'>
