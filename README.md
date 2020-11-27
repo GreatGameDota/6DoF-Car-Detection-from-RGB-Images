@@ -2,7 +2,7 @@
 
 My 177th place solution for the [6DoF Car Detection competition](https://www.kaggle.com/c/pku-autonomous-driving) hosted on Kaggle by Peking University/Baidu.
 
-<img src='https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images/blob/master/assets/example.png'>
+<img src='https://github.com/GreatGameDota/6DoF-Car-Detection-from-RGB-Images/blob/master/assets/example.png?raw=true'>
 
 ## Overview
 
